@@ -60,3 +60,11 @@ JSON output (&rates=1 version) should look something like this:
     }
 }
 ```
+# For Zabbix
+
+```
+
+* Download pfsense-status-gateways-json.sh put in the folder externalscripts in your Zabbix.
+* chmod 777 in pfsense-status-gateways-json.sh
+
+```
