@@ -1,5 +1,6 @@
 #Script criado por Everaldo Santos Cabral - 18/04/2021
 #Gere uma chave key aleatório mas que seja complexa e coloque-a na varivável KEY, bem como atualizar a key no arquivo status_gateways_json.php na linha 51.
+#Modify variable KEY and status_gateways_json.php line 51.
 
 #!/bin/bash
 
