@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2021-04-18T19:54:19Z</date>
+    <groups>
+        <group>
+            <name>Templates/Applications</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>TEMPLATE-PFSENSE-2.4-GATEWAYS-JSON</template>
+            <name>TEMPLATE-PFSENSE-2.4-GATEWAYS-JSON</name>
+            <templates>
+                <template>
+                    <name>TEMPLATE-PING-ICMP</name>
+                </template>
+                <template>
+                    <name>Template Module Interfaces SNMPv2</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>Templates/Applications</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Raw Gateway</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Item Master JSON</name>
+                    <type>EXTERNAL</type>
+                    <key>pfsense-status-gateways-json.sh</key>
+                    <history>7d</history>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>Raw Gateway</name>
+                        </application>
+                    </applications>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>LLD JSON Item Master</name>
+                    <type>DEPENDENT</type>
+                    <key>gw.pfsense</key>
+                    <delay>0</delay>
+                    <lifetime>0d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: Delay</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[delay.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].delay.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: Friendlyiface</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[friendlyiface.{#GW_FRIENDLYIFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].friendlyiface.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: GatewayIP</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[gatewayip.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].gatewayip.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: Interface</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[interface.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].interface.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: Loss</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[loss.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].loss.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: MonitorIP</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[monitorip.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].monitorip.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: Sourceip</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[sourceip.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].sourceip.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW {#GW_NAME}: Status</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[status.{#GW_INTERFACE}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].status.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{str(okay)}&lt;&gt;1</expression>
+                                    <name>GW {#GW_NAME} Status Gateway Verificar!</name>
+                                    <opdata>Último dado atualizado: {ITEM.LASTVALUE}</opdata>
+                                    <priority>DISASTER</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GW nome: {#GW_NAME}</name>
+                            <type>DEPENDENT</type>
+                            <key>gw_nome[status.{#GW_NAME}]</key>
+                            <delay>0</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>GW {#GW_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.*.['{#GW_FRIENDLYIFACE}'].name.first()</params>
+                                    <error_handler>DISCARD_VALUE</error_handler>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>pfsense-status-gateways-json.sh</key>
+                            </master_item>
+                        </item_prototype>
+                    </item_prototypes>
+                    <master_item>
+                        <key>pfsense-status-gateways-json.sh</key>
+                    </master_item>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.*.*</params>
+                        </step>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <params>output = JSON.parse(value).map(function(dev){
+    return {
+        &quot;{#GW_FRIENDLYIFACE}&quot;: dev.friendlyiface,
+        &quot;{#GW_INTERFACE}&quot;: dev.interface,
+        &quot;{#GW_NAME}&quot;: dev.name
+    }})
+return JSON.stringify({&quot;data&quot;: output})</params>
+                        </step>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1h</params>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$EXPECTED_CARP_STATUS}</macro>
+                    <value>0</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>
