@@ -65,7 +65,8 @@ JSON output (&rates=1 version) should look something like this:
 # For Zabbix
 
 ```
-
+* Import Templates if you haven't: TEMPLATE-PING-ICMP.xml, Template Module Interfaces SNMPv2.xml
+* Import Template: TEMPLATE-PFSENSE-2.4-GATEWAYS-JSON.xml
 * Download pfsense-status-gateways-json.sh put in the folder externalscripts in your Zabbix.
 * chmod 777 in pfsense-status-gateways-json.sh
 
