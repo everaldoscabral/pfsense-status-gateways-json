@@ -68,3 +68,6 @@ JSON output (&rates=1 version) should look something like this:
 * chmod 777 in pfsense-status-gateways-json.sh
 
 ```
+# Latest Data:
+
+![Dados_Recentes_Gateway.PNG](Dados_Recentes_Gateway.PNG)
