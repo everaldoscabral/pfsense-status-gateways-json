@@ -1,5 +1,7 @@
 # pfsense-status-gateways-json
 
+# For PFSense
+
 Module retrieves pfSense 2.x Dashboard Gateway Status and Network Traffic Graphs data in JSON format.
 
 "status" can be "force_down", "down", "loss" (for packet-loss warning), "delay" (for latency
