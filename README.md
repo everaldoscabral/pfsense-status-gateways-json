@@ -70,6 +70,6 @@ JSON output (&rates=1 version) should look something like this:
 * chmod 777 in pfsense-status-gateways-json.sh
 
 ```
-# Latest Data:
+# Latest Data Zabbix:
 
 ![Dados_Recentes_Gateway.PNG](Dados_Recentes_Gateway.PNG)
